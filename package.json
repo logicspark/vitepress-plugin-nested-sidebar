@@ -37,7 +37,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/types",
+    "build": "vite build && tsc --emitDeclarationOnly && mv dist/types",
     "preview": "vite preview"
   },
   "devDependencies": {
