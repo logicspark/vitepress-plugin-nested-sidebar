@@ -29,7 +29,7 @@
   },
   "main": "./dist/vitepress-plugin-nested-sidebar.umd.js",
   "module": "./dist/vitepress-plugin-nested-sidebar.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
   ],
