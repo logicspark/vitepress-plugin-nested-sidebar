@@ -22,13 +22,12 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/vitepress-plugin-nested-sidebar.cjs",
+      "require": "./dist/vitepress-plugin-nested-sidebar.umd.js",
       "import": "./dist/vitepress-plugin-nested-sidebar.mjs"
     },
     "./dist/*": "./dist/*"
   },
-  "main": "./dist/vitepress-plugin-nested-sidebar.cjs",
+  "main": "./dist/vitepress-plugin-nested-sidebar.umd.js",
   "module": "./dist/vitepress-plugin-nested-sidebar.mjs",
   "types": "./dist/index.d.ts",
   "files": [
