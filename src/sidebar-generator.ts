@@ -8,10 +8,6 @@ declare interface Options {
   includeIndexMd?: boolean;
 }
 
-declare interface SidebarListItem {
-  [key: string]: any;
-}
-
 export type SidebarItem = {
   text?: string;
   link?: string;
@@ -26,7 +22,7 @@ export interface SidebarMulti {
 export type Sidebar = SidebarItem[] | SidebarMulti;
 
 export default class SidebarGenerator {
-  static generateSidebar(options: Options): Sidebar {
+  generateSidebar(options: Options): Sidebar {
     const isMultipleSidebar = !Array.isArray(options.sidebars);
 
     const sidebar: Sidebar = {};
@@ -34,10 +30,10 @@ export default class SidebarGenerator {
     if (isMultipleSidebar) {
       Object.keys(options.sidebars).forEach((item) => {
         const currentDirName = "." + item;
-        const sidebarItems = SidebarGenerator._generateSidebarItem(
+        const sidebarItems = this._generateSidebarItem(
           currentDirName,
           options
-        ).map(SidebarGenerator._setupSidebar(item, options, isMultipleSidebar));
+        ).map(this._setupSidebar(item, options, isMultipleSidebar));
 
         Object.assign(sidebar, { [item]: sidebarItems });
       });
@@ -46,10 +42,9 @@ export default class SidebarGenerator {
     }
 
     (options.sidebars as SidebarItem[]).forEach((ele) => {
-      const sidebarItems = SidebarGenerator._generateSidebarItem(
-        "./",
-        options
-      ).map(SidebarGenerator._setupSidebar("", options, isMultipleSidebar));
+      const sidebarItems = this._generateSidebarItem("./", options).map(
+        this._setupSidebar("", options, isMultipleSidebar)
+      );
 
       Object.assign(sidebar, sidebarItems);
     });
@@ -57,11 +52,7 @@ export default class SidebarGenerator {
     return Object.values(sidebar) as SidebarItem[];
   }
 
-  static _setupSidebar(
-    file: string,
-    options: Options,
-    isMultipleSidebar: boolean
-  ) {
+  _setupSidebar(file: string, options: Options, isMultipleSidebar: boolean) {
     return (sidebar: SidebarItem | undefined | null) => {
       let customSidebar: SidebarItem | undefined = {};
 
@@ -96,7 +87,7 @@ export default class SidebarGenerator {
     };
   }
 
-  static _generateSidebarItem(currentDir: string, options: Options) {
+  _generateSidebarItem(currentDir: string, options: Options) {
     let directoryFiles: string[] = FileHelper.getFileByReaddirSync(currentDir);
 
     const exceptDotFiles = [".json", ".yaml", ".lock"];
@@ -147,7 +138,7 @@ export default class SidebarGenerator {
 
           // const linkText = file.replace(/\.md$/, "");
 
-          childItemText = SidebarGenerator._getTitleFromFileName(file);
+          childItemText = this._getTitleFromFileName(file);
           const { content } = matter(fileData);
 
           const h2Tags = content
@@ -186,7 +177,7 @@ export default class SidebarGenerator {
       .filter((result) => result !== null);
   }
 
-  static _getTitleFromFileName(fileName: string, isDirectory = false) {
+  _getTitleFromFileName(fileName: string, isDirectory = false) {
     let result = fileName;
 
     if (isDirectory) {
@@ -198,6 +189,6 @@ export default class SidebarGenerator {
   }
 }
 
-export { SidebarGenerator };
+const sidebarGenerator = new SidebarGenerator();
 
-export const { generateSidebar } = SidebarGenerator;
+export { sidebarGenerator };

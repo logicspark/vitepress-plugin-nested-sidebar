@@ -38,7 +38,6 @@ function checkPositionH2byScroll(options: Options) {
       return;
     }
 
-    console.log("scroll");
     const selectedIndex: number[] = [];
     const filteredHeaders: HTMLElement[] = [];
     document.querySelectorAll("h2").forEach((item) => {
