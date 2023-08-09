@@ -1,7 +1,8 @@
-import { sidebarGenerator } from "./sidebar-generator";
+import SidebarGenerator from "./sidebar-generator";
 
 export default function PluginNestedSidebar() {
+  const { generateSidebar } = SidebarGenerator;
   return {
-    sidebarGenerator,
+    generateSidebar,
   };
 }
