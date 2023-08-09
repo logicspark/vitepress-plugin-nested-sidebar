@@ -22,7 +22,7 @@
   ],
   "exports": {
     ".": {
-      "type": "./dist/vitepress-plugin-nested-sidebar.d.ts",
+      "type": "./dist/index.d.ts",
       "require": "./dist/vitepress-plugin-nested-sidebar.cjs",
       "import": "./dist/vitepress-plugin-nested-sidebar.mjs"
     },
@@ -30,7 +30,7 @@
   },
   "main": "dist/vitepress-plugin-nested-sidebar.cjs",
   "module": "dist/vitepress-plugin-nested-sidebar.mjs",
-  "types": "dist/vitepress-plugin-nested-sidebar.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "*.d.ts"
