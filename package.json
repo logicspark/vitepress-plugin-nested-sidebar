@@ -22,18 +22,17 @@
   ],
   "exports": {
     ".": {
-      "type": "./dist/index.d.ts",
+      "types": "./dist/index.d.ts",
       "require": "./dist/vitepress-plugin-nested-sidebar.cjs",
       "import": "./dist/vitepress-plugin-nested-sidebar.mjs"
     },
     "./dist/*": "./dist/*"
   },
-  "main": "dist/vitepress-plugin-nested-sidebar.cjs",
-  "module": "dist/vitepress-plugin-nested-sidebar.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/vitepress-plugin-nested-sidebar.cjs",
+  "module": "./dist/vitepress-plugin-nested-sidebar.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "*.d.ts"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
