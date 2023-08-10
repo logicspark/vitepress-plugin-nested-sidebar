@@ -8,8 +8,8 @@ export default defineConfig({
       name: "AutoSidebar",
       fileName: (format: string) =>
         format == "es"
-          ? `vitepress-plugin-auto-sidebar.${format}.mjs`
-          : `vitepress-plugin-auto-sidebar.${format}.js`,
+          ? `vitepress-plugin-nested-sidebar.${format}.mjs`
+          : `vitepress-plugin-nested-sidebar.${format}.js`,
     },
     rollupOptions: {
       external: ["fs", "path"],
