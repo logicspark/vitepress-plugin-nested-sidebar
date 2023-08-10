@@ -1,3 +1,7 @@
-import SidebarGenerator from "./sidebar-generator";
+import { generateSidebar } from "./sidebar-generator";
 
-export const { generateSidebar } = SidebarGenerator;
+export default function VitepressPluginNestedSidebar() {
+  return {
+    generateSidebar,
+  };
+}

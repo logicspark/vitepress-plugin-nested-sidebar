@@ -58,5 +58,3 @@ function checkPositionH2byScroll(options: Options) {
     setHeadersStyle(selectedIndex[selectedIndex.length - 1], options);
   }, 100);
 }
-
-export default { checkPositionH2byScroll };

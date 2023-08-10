@@ -45,7 +45,12 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
     "unbuild": "^1.2.1",
-    "vite": "^4.4.5",
-    "vitepress": "^1.0.0-rc.4"
+    "vite": "^4.4.5"
+  },
+  "engines": {
+    "node": "^14.13.1 || ^16.7.0 || >=18"
+  },
+  "dependencies": {
+    "vitepress": "1.0.0-rc.4"
   }
 }
