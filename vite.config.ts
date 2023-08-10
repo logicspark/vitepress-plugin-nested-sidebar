@@ -5,7 +5,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "AutoSidebar",
+      name: "VitepressPluginNestedSidebar",
       fileName: (format: string) =>
         format == "es"
           ? `vitepress-plugin-nested-sidebar.${format}.mjs`
