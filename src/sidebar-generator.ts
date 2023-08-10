@@ -1,7 +1,6 @@
 import { resolve, extname } from "path";
 import matter from "gray-matter";
 import FileHelper from "./utils/file-helper";
-import { useData } from "vitepress";
 
 declare interface Options {
   sidebars: Sidebar;
@@ -27,9 +26,8 @@ export interface SidebarMulti {
 export type Sidebar = SidebarItem[] | SidebarMulti;
 
 function generateSidebar(options: Options): Sidebar {
-  const { page } = useData();
   const isMultipleSidebar = !Array.isArray(options.sidebars);
-  console.log("page", page);
+
   const sidebar: Sidebar = {};
 
   if (isMultipleSidebar) {
