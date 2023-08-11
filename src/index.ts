@@ -1,27 +1,11 @@
-import {
-  generateSidebar,
-  Options as SidebarOptions,
-} from "./sidebar-generator";
+import { generateSidebar } from "./sidebar-generator";
+import ScrollUtils from "./utils/scroll-check-header";
 
-import ScrollHighlight, {
-  Options as ScrollOptions,
-} from "./utils/scroll-check-header";
-
-export default class VitepressPluginNestedSidebar {
-  static createSidebar(options: SidebarOptions) {
-    return generateSidebar(options);
-  }
-
-  static scrollAndHighlightH2(options: ScrollOptions) {
-    return ScrollHighlight.checkPositionH2byScroll(options);
-  }
-
-  static checkDocumentIsChanged(changed: boolean, options: ScrollOptions) {
-    return ScrollHighlight.checkDocumentChanged(changed, options);
-  }
+export default function VitepressPluginNestedSidebar() {
+  const { checkPositionH2byScroll, checkDocumentChanged } = ScrollUtils;
+  return {
+    generateSidebar,
+    checkPositionH2byScroll,
+    checkDocumentChanged,
+  };
 }
-
-export { VitepressPluginNestedSidebar };
-
-export const { createSidebar, scrollAndHighlightH2, checkDocumentIsChanged } =
-  VitepressPluginNestedSidebar;
