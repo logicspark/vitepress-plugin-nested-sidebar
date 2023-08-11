@@ -1,6 +1,6 @@
 let timer: ReturnType<typeof setTimeout>;
 
-declare interface Options {
+export interface Options {
   idName?: string;
   adjustCalHeaderNum?: number;
   highLightColor: string;
@@ -17,6 +17,12 @@ function setHeadersStyle(index: number, options: Options) {
       headers[idx].querySelector("p")?.removeAttribute("style");
     }
   });
+}
+
+function checkDocumentChanged(changed: boolean, options: Options) {
+  if (changed) {
+    checkPositionH2byScroll(options);
+  }
 }
 
 function checkPositionH2byScroll(options: Options) {
@@ -58,3 +64,5 @@ function checkPositionH2byScroll(options: Options) {
     setHeadersStyle(selectedIndex[selectedIndex.length - 1], options);
   }, 100);
 }
+
+export default { checkPositionH2byScroll, checkDocumentChanged };

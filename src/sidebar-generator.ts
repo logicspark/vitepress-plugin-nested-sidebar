@@ -2,7 +2,7 @@ import { resolve, extname } from "path";
 import matter from "gray-matter";
 import FileHelper from "./utils/file-helper";
 
-declare interface Options {
+export interface Options {
   sidebars: Sidebar;
   excludeFiles?: string[];
   includeIndexMd?: boolean;
