@@ -1,3 +1,5 @@
+import { SidebarItem } from "src/sidebar-generator";
+
 let timer: ReturnType<typeof setTimeout>;
 
 export interface Options {
@@ -6,26 +8,35 @@ export interface Options {
   highLightColor: string;
 }
 
-function setHeadersStyle(index: number, options: Options) {
-  const headers = document.querySelectorAll(".VPSidebarItem .level-1");
-  const color = `color:${options.highLightColor}`;
-
-  headers.forEach((_item, idx) => {
+function setHeadersStyle(index: number, highLightColor: string) {
+  const headers = document
+    .querySelector(".VPSidebarItem.level-0.is-active.has-active")
+    ?.querySelectorAll(".VPSidebarItem.level-2");
+  const color = `color:${highLightColor}`;
+  headers?.forEach((item, idx) => {
     if (idx === index) {
-      headers[idx].querySelector("p")?.setAttribute("style", color);
+      item.querySelector("p")?.setAttribute("style", color);
     } else {
-      headers[idx].querySelector("p")?.removeAttribute("style");
+      item.querySelector("p")?.removeAttribute("style");
     }
   });
 }
 
-function checkDocumentChanged(changed: boolean, options: Options) {
-  if (changed) {
-    checkPositionH2byScroll(options);
-  }
+function resetHeader() {
+  const h2 = document?.querySelectorAll(".VPSidebarItem.level-2");
+  h2.forEach((item) => item.querySelector("p")?.removeAttribute("style"));
+  window.scrollTo(0, 0);
 }
 
-function checkPositionH2byScroll(options: Options) {
+function calculateAndHighlightHeader(
+  relativeFile: string,
+  headers: SidebarItem[],
+  options: Options
+) {
+  const filteredSidebar = headers.filter(
+    (item) => item.link?.slice(1) === relativeFile
+  )[0];
+
   let scrollYHeight: number;
   const headHeight = options?.adjustCalHeaderNum || 0;
   const { scrollY } = window;
@@ -38,31 +49,48 @@ function checkPositionH2byScroll(options: Options) {
   }
 
   if (timer) clearTimeout(timer);
+
   timer = setTimeout(() => {
     if (scrollYHeight <= 5) {
-      setHeadersStyle(0, options);
+      setHeadersStyle(0, options.highLightColor);
       return;
     }
 
+    if (!filteredSidebar.items) {
+      return;
+    }
+
+    const filterSidebarHeaders = filteredSidebar.items[0].items;
     const selectedIndex: number[] = [];
-    const filteredHeaders: HTMLElement[] = [];
-    document.querySelectorAll("h2").forEach((item) => {
+    const filteredHeaderElement: HTMLElement[] = [];
+
+    document.querySelectorAll("h2").forEach((item, index) => {
       if (!item.id) {
         return;
       }
+      const findIdx = filterSidebarHeaders!.findIndex((ele) => {
+        return (
+          ele.text == item.textContent?.slice(0, item.textContent.length - 2)
+        );
+      });
 
-      filteredHeaders.push(item);
+      if (findIdx === -1) {
+        return;
+      }
+      filteredHeaderElement.push(item);
     });
-
-    filteredHeaders.forEach((item, index) => {
-      const header = item.offsetTop - headHeight;
-      if (scrollYHeight >= header) {
+    filteredHeaderElement.forEach((item, index) => {
+      const headerPosition = item.offsetTop - headHeight;
+      if (scrollYHeight >= headerPosition) {
         selectedIndex.push(index);
       }
     });
 
-    setHeadersStyle(selectedIndex[selectedIndex.length - 1], options);
+    setHeadersStyle(
+      selectedIndex[selectedIndex.length - 1],
+      options.highLightColor
+    );
   }, 100);
 }
 
-export default { checkPositionH2byScroll, checkDocumentChanged };
+export default { calculateAndHighlightHeader, resetHeader };

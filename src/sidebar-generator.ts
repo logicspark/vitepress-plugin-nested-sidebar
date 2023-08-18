@@ -128,7 +128,7 @@ function generateSidebarItem(currentDir: string, options: Options) {
         return null;
       }
 
-      if (file === "nodemodules") {
+      if (file === "node_modules") {
         return null;
       }
 
@@ -140,33 +140,31 @@ function generateSidebarItem(currentDir: string, options: Options) {
         let childItemText;
         const fileData = FileHelper.getFileDataByReadFileSync(childItemPath);
 
-        // const linkText = file.replace(/\.md$/, "");
+        const linkText = file.replace(/\.md$/, "");
 
         childItemText = getTitleFromFileName(file);
         const { content } = matter(fileData);
 
-        const h2Tags = content
+        content
           .split("\n")
           .filter((item) => item.startsWith("## "))
           .forEach((item) => {
-            const slicedText = item.slice(3);
+            const slicedText = item.slice(3).trim();
             uniqueHeadersSet.add(slicedText);
-            // const decodeText = slicedText.replace(" ", "-").toLowerCase();
-
-            return {
-              text: slicedText,
-              // link: `${currentDir.replace(".", "")}${linkText}#${decodeText}`,
-            };
           });
         const uniqueHeaders = [...uniqueHeadersSet].map((header) => {
-          return { text: `${header}` };
+          const link = `${linkText}#${header}`.toLowerCase().replace(" ", "-");
+          return {
+            text: `${header}`,
+            link,
+          };
         });
 
         if (uniqueHeaders!.length) {
           return {
             text: childItemText as string,
             link: childItemPathDisplay,
-            items: uniqueHeaders,
+            items: [{ items: uniqueHeaders }],
           };
         }
 
