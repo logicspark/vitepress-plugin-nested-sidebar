@@ -4,7 +4,7 @@ let timer: ReturnType<typeof setTimeout>;
 
 export interface Options {
   idName?: string;
-  adjustCalHeaderNum?: number;
+  adjustOffsetTop?: number;
   highLightColor: string;
 }
 
@@ -38,10 +38,20 @@ function calculateAndHighlightHeader(
   )[0];
 
   let scrollYHeight: number;
-  const headHeight = options?.adjustCalHeaderNum || 0;
-  const { scrollY } = window;
+  let windowInnerHeight: number;
+
+  const adjustHeaderOffset = options?.adjustOffsetTop || 0;
+
+  const { scrollY, innerHeight } = window;
+
+  const offsetHeight = document.body.offsetHeight;
 
   scrollYHeight = scrollY;
+
+  windowInnerHeight = innerHeight;
+
+  const isBottom =
+    Math.abs(scrollYHeight + windowInnerHeight - offsetHeight) < 0.5;
 
   if (options?.idName) {
     const content = document.getElementById(`#${options.idName}`);
@@ -51,11 +61,6 @@ function calculateAndHighlightHeader(
   if (timer) clearTimeout(timer);
 
   timer = setTimeout(() => {
-    if (scrollYHeight <= 5) {
-      setHeadersStyle(0, options.highLightColor);
-      return;
-    }
-
     if (!filteredSidebar.items) {
       return;
     }
@@ -63,6 +68,16 @@ function calculateAndHighlightHeader(
     const filterSidebarHeaders = filteredSidebar.items[0].items;
     const selectedIndex: number[] = [];
     const filteredHeaderElement: HTMLElement[] = [];
+
+    if (scrollYHeight <= 5) {
+      setHeadersStyle(0, options.highLightColor);
+      return;
+    }
+
+    if (isBottom) {
+      setHeadersStyle(filterSidebarHeaders!.length - 1, options.highLightColor);
+      return;
+    }
 
     document.querySelectorAll("h2").forEach((item, index) => {
       if (!item.id) {
@@ -79,8 +94,10 @@ function calculateAndHighlightHeader(
       }
       filteredHeaderElement.push(item);
     });
+
     filteredHeaderElement.forEach((item, index) => {
-      const headerPosition = item.offsetTop - headHeight;
+      const headerPosition = item.offsetTop - adjustHeaderOffset;
+
       if (scrollYHeight >= headerPosition) {
         selectedIndex.push(index);
       }
