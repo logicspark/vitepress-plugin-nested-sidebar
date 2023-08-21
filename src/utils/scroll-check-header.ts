@@ -79,6 +79,7 @@ function calculateAndHighlightHeader(
       }
       filteredHeaderElement.push(item);
     });
+
     filteredHeaderElement.forEach((item, index) => {
       const headerPosition = item.offsetTop - headHeight;
       if (scrollYHeight >= headerPosition) {
