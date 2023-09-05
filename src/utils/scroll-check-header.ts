@@ -4,20 +4,20 @@ let timer: ReturnType<typeof setTimeout>;
 
 export interface Options {
   idName?: string;
-  adjustCalHeaderNum?: number;
-  highLightColor: string;
+  adjustOffsetTop?: number;
 }
 
-function setHeadersStyle(index: number, highLightColor: string) {
+function setHeadersStyle(index: number) {
   const headers = document
     .querySelector(".VPSidebarItem.level-0.is-active.has-active")
     ?.querySelectorAll(".VPSidebarItem.level-2");
-  const color = `color:${highLightColor}`;
+
   headers?.forEach((item, idx) => {
     if (idx === index) {
-      item.querySelector("p")?.setAttribute("style", color);
+      window.history.pushState(null, "", `${item.querySelector("a")?.href}`);
+      item.setAttribute("class", "VPSidebarItem level-2 is-link is-active");
     } else {
-      item.querySelector("p")?.removeAttribute("style");
+      item.setAttribute("class", "VPSidebarItem level-2 is-link");
     }
   });
 }
@@ -28,20 +28,22 @@ function resetHeader() {
   window.scrollTo(0, 0);
 }
 
-function calculateAndHighlightHeader(
-  relativeFile: string,
-  headers: SidebarItem[],
-  options: Options
-) {
-  const filteredSidebar = headers.filter(
-    (item) => item.link?.slice(1) === relativeFile
-  )[0];
-
+function calculateAndHighlightHeader(header: SidebarItem, options: Options) {
   let scrollYHeight: number;
-  const headHeight = options?.adjustCalHeaderNum || 0;
-  const { scrollY } = window;
+  let windowInnerHeight: number;
+
+  const adjustHeaderOffset = options?.adjustOffsetTop || 0;
+
+  const { scrollY, innerHeight } = window;
+
+  const offsetHeight = document.body.offsetHeight;
 
   scrollYHeight = scrollY;
+
+  windowInnerHeight = innerHeight;
+
+  const isBottom =
+    Math.abs(scrollYHeight + windowInnerHeight - offsetHeight) < 0.5;
 
   if (options?.idName) {
     const content = document.getElementById(`#${options.idName}`);
@@ -51,18 +53,23 @@ function calculateAndHighlightHeader(
   if (timer) clearTimeout(timer);
 
   timer = setTimeout(() => {
-    if (scrollYHeight <= 5) {
-      setHeadersStyle(0, options.highLightColor);
+    if (!header.items) {
       return;
     }
 
-    if (!filteredSidebar.items) {
-      return;
-    }
-
-    const filterSidebarHeaders = filteredSidebar.items[0].items;
+    const filterSidebarHeaders = header.items[0].items;
     const selectedIndex: number[] = [];
     const filteredHeaderElement: HTMLElement[] = [];
+
+    if (scrollYHeight <= 5) {
+      setHeadersStyle(0);
+      return;
+    }
+
+    if (isBottom) {
+      setHeadersStyle(filterSidebarHeaders!.length - 1);
+      return;
+    }
 
     document.querySelectorAll("h2").forEach((item, index) => {
       if (!item.id) {
@@ -81,16 +88,14 @@ function calculateAndHighlightHeader(
     });
 
     filteredHeaderElement.forEach((item, index) => {
-      const headerPosition = item.offsetTop - headHeight;
+      const headerPosition = item.offsetTop - adjustHeaderOffset;
+
       if (scrollYHeight >= headerPosition) {
         selectedIndex.push(index);
       }
     });
 
-    setHeadersStyle(
-      selectedIndex[selectedIndex.length - 1],
-      options.highLightColor
-    );
+    setHeadersStyle(selectedIndex[selectedIndex.length - 1]);
   }, 100);
 }
 
