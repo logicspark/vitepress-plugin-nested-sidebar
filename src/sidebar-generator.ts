@@ -8,10 +8,6 @@ export interface Options {
   includeIndexMd?: boolean;
 }
 
-declare interface SidebarListItem {
-  [key: string]: any;
-}
-
 export type SidebarItem = {
   text?: string;
   link?: string;
@@ -33,6 +29,7 @@ function generateSidebar(options: Options): Sidebar {
   if (isMultipleSidebar) {
     Object.keys(options.sidebars).forEach((item) => {
       const currentDirName = "." + item;
+
       const sidebarItems = generateSidebarItem(currentDirName, options).map(
         setupSidebar(item, options, isMultipleSidebar)
       );
@@ -102,9 +99,6 @@ function generateSidebarItem(currentDir: string, options: Options) {
     .map((file) => {
       const childItemPath = resolve(currentDir, file);
       const uniqueHeadersSet = new Set();
-      const childItemPathDisplay = `${currentDir.replace(".", "")}${file}`
-        .replace(/\/{2}/, "/")
-        .replace(/\.md$/, "");
 
       const checkDotVitePressFile = /\.vitepress/;
 
@@ -140,7 +134,9 @@ function generateSidebarItem(currentDir: string, options: Options) {
         let childItemText;
         const fileData = FileHelper.getFileDataByReadFileSync(childItemPath);
 
-        const linkText = file.replace(/\.md$/, "");
+        const childItemPathDisplay = `${currentDir.replace(".", "")}${file}`
+          .replace(/\/{2}/, "/")
+          .replace(/\.md$/, "");
 
         childItemText = getTitleFromFileName(file);
         const { content } = matter(fileData);
@@ -153,7 +149,10 @@ function generateSidebarItem(currentDir: string, options: Options) {
             uniqueHeadersSet.add(slicedText);
           });
         const uniqueHeaders = [...uniqueHeadersSet].map((header) => {
-          const link = `${linkText}#${header}`.toLowerCase().replace(" ", "-");
+          const link = `${childItemPathDisplay}#${header}`
+            .toLowerCase()
+            .replace(" ", "-");
+
           return {
             text: `${header}`,
             link,

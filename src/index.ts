@@ -1,15 +1,22 @@
-import { generateSidebar } from "./sidebar-generator";
+import { SidebarItem, generateSidebar, Sidebar } from "./sidebar-generator";
 import ScrollUtils from "./utils/scroll-check-header";
 
 export default function VitepressPluginNestedSidebar() {
   const { calculateAndHighlightHeader, resetHeader } = ScrollUtils;
-  const getFilename = (filename: string) => {
-    return filename.replace(/\.md$/, "");
+
+  const filterSidebar = (compare: string) => {
+    return (item: SidebarItem) => item.link === compare;
+  };
+  const checkMultipleSidebar = (sidebar: Sidebar) => {
+    return !Array.isArray(sidebar);
   };
   return {
     generateSidebar,
-    calculateAndHighlightHeader,
-    getFilename,
-    resetHeader,
+    utility: {
+      calculateAndHighlightHeader,
+      resetHeader,
+      filterSidebar,
+      checkMultipleSidebar,
+    },
   };
 }
