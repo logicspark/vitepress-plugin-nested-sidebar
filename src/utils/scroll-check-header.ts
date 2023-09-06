@@ -22,12 +22,6 @@ function setHeadersStyle(index: number) {
   });
 }
 
-function resetHeader() {
-  const h2 = document?.querySelectorAll(".VPSidebarItem.level-2");
-  h2.forEach((item) => item.querySelector("p")?.removeAttribute("style"));
-  window.scrollTo(0, 0);
-}
-
 function calculateAndHighlightHeader(header: SidebarItem, options: Options) {
   let scrollYHeight: number;
   let windowInnerHeight: number;
@@ -99,4 +93,4 @@ function calculateAndHighlightHeader(header: SidebarItem, options: Options) {
   }, 100);
 }
 
-export default { calculateAndHighlightHeader, resetHeader };
+export default { calculateAndHighlightHeader };
