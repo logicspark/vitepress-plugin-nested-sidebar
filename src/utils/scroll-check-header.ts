@@ -7,6 +7,14 @@ export interface Options {
   adjustOffsetTop?: number;
 }
 
+function resetHeader() {
+  const h2 = document.querySelectorAll(".VPSidebarItem.level-2");
+  h2.forEach((item) =>
+    item.setAttribute("class", "VPSidebarItem level-2 is-link")
+  );
+  window.scrollTo(0, 0);
+}
+
 function setHeadersStyle(index: number) {
   const headers = document
     .querySelector(".VPSidebarItem.level-0.is-active.has-active")
@@ -93,4 +101,4 @@ function calculateAndHighlightHeader(header: SidebarItem, options: Options) {
   }, 100);
 }
 
-export default { calculateAndHighlightHeader };
+export default { calculateAndHighlightHeader, resetHeader };
