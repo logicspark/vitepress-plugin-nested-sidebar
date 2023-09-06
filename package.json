@@ -1,6 +1,9 @@
 {
   "name": "vitepress-plugin-nested-sidebar",
-  "repository": "git://github.com/JonathanSchndr/vitepress-plugin-nested-sidebar.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/logicspark/vitepress-plugin-nested-sidebar"
+  },
   "version": "0.0.1",
   "description": "Generate the VitePress sidebar through the folder structure.",
   "types": "./dist/types/src/index.d.ts",
@@ -31,14 +34,17 @@
   "author": "Jonathan Schneider",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JonathanSchndr/vitepress-plugin-nested-sidebar/issues"
+    "url": "https://github.com/logicspark/vitepress-plugin-nested-sidebar/issues"
   },
-  "homepage": "https://github.com/JonathanSchndr/vitepress-plugin-auto-sidebar#readme",
+  "homepage": "https://github.com/logicspark/vitepress-plugin-nested-sidebar",
   "devDependencies": {
     "@types/node": "^18.16.16",
     "gray-matter": "^4.0.3",
     "vite": "^4.3.9",
     "vitepress": "1.0.0-rc.10",
     "vue-tsc": "^1.6.5"
+  },
+  "directories": {
+    "example": "example"
   }
 }
