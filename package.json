@@ -2,12 +2,15 @@
   "name": "vitepress-plugin-nested-sidebar",
   "private": false,
   "description": "Generate Nested sidebar. Support Multiple Sidebar. Support TypeScript",
-  "version": "0.0.1-rc.28",
+  "version": "0.0.1",
   "license": "MIT",
   "author": "LogicSpark <info@logicspark.com>",
   "homepage": "https://logicspark.com",
   "url": "https://github.com/logicspark/vitepress-plugin-nested-sidebar",
-  "repository": "git://github.com/logicspark/vitepress-plugin-nested-sidebar.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/logicspark/vitepress-plugin-nested-sidebar.git"
+  },
   "bugs": {
     "url": "https://github.com/logicspark/vitepress-plugin-nested-sidebar/issues"
   },
@@ -42,5 +45,8 @@
     "vite": "^4.3.9",
     "vitepress": "1.0.0-rc.10",
     "vue-tsc": "^1.6.5"
+  },
+  "directories": {
+    "example": "example"
   }
 }
