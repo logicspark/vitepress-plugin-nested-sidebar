@@ -443,7 +443,11 @@ packages:
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
     dependencies:
+<<<<<<< HEAD
       '@babel/parser': 7.22.15
+=======
+      '@babel/parser': 7.22.14
+>>>>>>> refs/remotes/origin/develop
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       source-map-js: 1.0.2

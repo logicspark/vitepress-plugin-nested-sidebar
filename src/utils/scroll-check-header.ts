@@ -7,6 +7,7 @@ export interface Options {
   adjustOffsetTop?: number;
 }
 
+<<<<<<< HEAD
 function resetHeader() {
   const h2 = document.querySelectorAll(".VPSidebarItem.level-2");
   h2.forEach((item) =>
@@ -15,6 +16,8 @@ function resetHeader() {
   window.scrollTo(0, 0);
 }
 
+=======
+>>>>>>> refs/remotes/origin/develop
 function setHeadersStyle(index: number) {
   const headers = document
     .querySelector(".VPSidebarItem.level-0.is-active.has-active")
@@ -30,6 +33,15 @@ function setHeadersStyle(index: number) {
   });
 }
 
+<<<<<<< HEAD
+=======
+function resetHeader() {
+  const h2 = document?.querySelectorAll(".VPSidebarItem.level-2");
+  h2.forEach((item) => item.querySelector("p")?.removeAttribute("style"));
+  window.scrollTo(0, 0);
+}
+
+>>>>>>> refs/remotes/origin/develop
 function calculateAndHighlightHeader(header: SidebarItem, options: Options) {
   let scrollYHeight: number;
   let windowInnerHeight: number;
