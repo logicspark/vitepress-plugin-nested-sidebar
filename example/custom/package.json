@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "vitepress": "1.0.0-rc.10",
-    "vitepress-plugin-nested-sidebar": "0.0.1-rc.28"
+    "vitepress-plugin-nested-sidebar": "^0.1.1"
   }
 }
