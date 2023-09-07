@@ -29,7 +29,7 @@ var require_fs = __commonJS({
   }
 });
 
-// node_modules/.pnpm/vitepress-plugin-nested-sidebar@0.0.1-rc.26/node_modules/vitepress-plugin-nested-sidebar/dist/vitepress-plugin-nested-sidebar.es.mjs
+// node_modules/.pnpm/vitepress-plugin-nested-sidebar@0.1.1/node_modules/vitepress-plugin-nested-sidebar/dist/vitepress-plugin-nested-sidebar.es.mjs
 var import_path = __toESM(require_path(), 1);
 var import_fs = __toESM(require_fs(), 1);
 function getDefaultExportFromCjs(e) {
@@ -2013,6 +2013,11 @@ function getTitleFromFileName(e, r = false) {
   return r ? (n = n.replace(/-/g, " ").replace(/_/g, " "), n) : (n = n.replace(/-/g, " ").replace(/_/g, " ").replace(/\.md$/, ""), n);
 }
 var timer;
+function resetHeader() {
+  document.querySelectorAll(".VPSidebarItem.level-2").forEach(
+    (r) => r.setAttribute("class", "VPSidebarItem level-2 is-link")
+  ), window.scrollTo(0, 0);
+}
 function setHeadersStyle(e) {
   var n;
   const r = (n = document.querySelector(".VPSidebarItem.level-0.is-active.has-active")) == null ? void 0 : n.querySelectorAll(".VPSidebarItem.level-2");
@@ -2020,12 +2025,6 @@ function setHeadersStyle(e) {
     var l;
     t === e ? (window.history.pushState(null, "", `${(l = o.querySelector("a")) == null ? void 0 : l.href}`), o.setAttribute("class", "VPSidebarItem level-2 is-link is-active")) : o.setAttribute("class", "VPSidebarItem level-2 is-link");
   });
-}
-function resetHeader() {
-  (document == null ? void 0 : document.querySelectorAll(".VPSidebarItem.level-2")).forEach((r) => {
-    var n;
-    return (n = r.querySelector("p")) == null ? void 0 : n.removeAttribute("style");
-  }), window.scrollTo(0, 0);
 }
 function calculateAndHighlightHeader(e, r) {
   let n, o;
@@ -2066,9 +2065,9 @@ function VitepressPluginNestedSidebar() {
     generateSidebar,
     utility: {
       calculateAndHighlightHeader: e,
-      resetHeader: r,
       filterSidebar: (t) => (l) => l.link === t,
-      checkMultipleSidebar: (t) => !Array.isArray(t)
+      checkMultipleSidebar: (t) => !Array.isArray(t),
+      resetHeader: r
     }
   };
 }
