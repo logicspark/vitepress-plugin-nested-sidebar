@@ -7,7 +7,7 @@ Generate Nested sidebar. Support Multiple Sidebar. Support TypeScript
 
 Developed by [Logic Spark](https://logicspark.com) team
 
-[![npm](https://img.shields.io/npm/v/vitepress-theme-api)][package-url]
+[![npm](https://img.shields.io/npm/v/vitepress-plugin-nested-sidebar)][package-url]
 [![Typescript](https://img.shields.io/badge/typescript-100%25-blue)][typescript-url]
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/logicspark/awesome-social-button/blob/main/LICENSE)
 
@@ -28,11 +28,11 @@ Developed by [Logic Spark](https://logicspark.com) team
 
 Basic Sidebar
 
-https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/cb3ac955-32d2-407c-8359-0e8d2402314f
+https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/f903db0f-ba3a-467b-a4cf-3547ea16af24
 
 Multiple Sidebar
 
-https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/69e1acb5-9a1c-4ace-bc8a-43e4f49ae4fe
+https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/ab258efd-e4c7-438b-a26f-c44ae5d715f1
 
 ## :building_construction: Built With
 
@@ -190,11 +190,11 @@ const {
 } = utility;
 ```
 
-_Note_: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](https://github.com/logicspark/vitepress-plugin-nested-sidebar/blob/develop/example/default-and-custom/.vitepress/theme/Layout.vue) directory.
+_Note_: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](https://github.com/logicspark/vitepress-plugin-nested-sidebar/blob/develop/example/default_and_custom/.vitepress/theme/Layout.vue) directory.
 
 ## :books: License
 
-Distributed under the MIT License. See [`LICENSE`](https://github.com/logicspark/vitpress-theme-api/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/logicspark/vitpress-plugin-nested-sidebar/blob/main/LICENSE) for more information.
 
 Vitepress is licensed under MIT License. Click [here](https://github.com/vuejs/vitepress/blob/main/LICENSE) for more information.
 
@@ -214,4 +214,4 @@ Vitepress is licensed under MIT License. Click [here](https://github.com/vuejs/v
 [Vue-url]: https://vuejs.org/
 [Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
 [vite-url]: https://vitejs.dev/
-[package-url]: https://www.npmjs.com/package/vitepress-theme-api
+[package-url]: https://www.npmjs.com/package/vitepress-plugin-nested-sidebar
