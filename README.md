@@ -28,11 +28,11 @@ Developed by [Logic Spark](https://logicspark.com) team
 
 Basic Sidebar
 
-https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/cb3ac955-32d2-407c-8359-0e8d2402314f
+https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/bf64884f-3aff-4d2b-81f8-4a3cb41b923b
 
 Multiple Sidebar
 
-https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/69e1acb5-9a1c-4ace-bc8a-43e4f49ae4fe
+https://github.com/logicspark/vitepress-plugin-nested-sidebar/assets/135820109/ca50fa7f-7ce7-48ec-ac70-562e2471dd8b
 
 ## :building_construction: Built With
 

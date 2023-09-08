@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "vitepress": "1.0.0-rc.4"
+  },
+  "dependencies": {
+    "vitepress-plugin-nested-sidebar": "^0.1.1"
+  }
+}

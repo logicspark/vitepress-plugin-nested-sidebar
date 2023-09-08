@@ -1,0 +1,38 @@
+{
+  "hash": "72b6f24c",
+  "browserHash": "cab5fa71",
+  "optimized": {
+    "vue": {
+      "src": "../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "1e8b4230",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../node_modules/.pnpm/@vue+devtools-api@6.5.0/node_modules/@vue/devtools-api/lib/esm/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "340abd83",
+      "needsInterop": false
+    },
+    "gray-matter": {
+      "src": "../../../../../node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/index.js",
+      "file": "gray-matter.js",
+      "fileHash": "1c77e3b9",
+      "needsInterop": true
+    },
+    "vitepress-plugin-nested-sidebar": {
+      "src": "../../../node_modules/.pnpm/vitepress-plugin-nested-sidebar@0.1.1/node_modules/vitepress-plugin-nested-sidebar/dist/vitepress-plugin-nested-sidebar.es.mjs",
+      "file": "vitepress-plugin-nested-sidebar.js",
+      "fileHash": "5756b97c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-F6HTLDYI": {
+      "file": "chunk-F6HTLDYI.js"
+    },
+    "chunk-WNKWOKNR": {
+      "file": "chunk-WNKWOKNR.js"
+    }
+  }
+}
