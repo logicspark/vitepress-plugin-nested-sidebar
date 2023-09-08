@@ -7,7 +7,7 @@ Generate Nested sidebar. Support Multiple Sidebar. Support TypeScript
 
 Developed by [Logic Spark](https://logicspark.com) team
 
-[![npm](https://img.shields.io/npm/v/vitepress-theme-api)][package-url]
+[![npm](https://img.shields.io/npm/v/vitepress-plugin-nested-sidebar)][package-url]
 [![Typescript](https://img.shields.io/badge/typescript-100%25-blue)][typescript-url]
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/logicspark/awesome-social-button/blob/main/LICENSE)
 
@@ -214,4 +214,4 @@ Vitepress is licensed under MIT License. Click [here](https://github.com/vuejs/v
 [Vue-url]: https://vuejs.org/
 [Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
 [vite-url]: https://vitejs.dev/
-[package-url]: https://www.npmjs.com/package/vitepress-theme-api
+[package-url]: https://www.npmjs.com/package/vitepress-plugin-nested-sidebar
