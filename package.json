@@ -2,7 +2,7 @@
   "name": "vitepress-plugin-nested-sidebar",
   "private": false,
   "description": "Generate Nested sidebar. Support Multiple Sidebar. Support TypeScript",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "LogicSpark <info@logicspark.com>",
   "homepage": "https://logicspark.com",
