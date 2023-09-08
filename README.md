@@ -194,7 +194,7 @@ _Note_: You can also apply this instruction to **Option 2** and **Option 3**. Fo
 
 ## :books: License
 
-Distributed under the MIT License. See [`LICENSE`](https://github.com/logicspark/vitpress-plugin-nested-sidebar/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/logicspark/vitepress-plugin-nested-sidebar/blob/main/LICENSE) for more information.
 
 Vitepress is licensed under MIT License. Click [here](https://github.com/vuejs/vitepress/blob/main/LICENSE) for more information.
 

@@ -7,7 +7,7 @@ settings:
 dependencies:
   vitepress-plugin-nested-sidebar:
     specifier: ^0.1.1
-    version: 0.1.1
+    version: 0.1.2
 
 devDependencies:
   gray-matter:
@@ -857,8 +857,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress-plugin-nested-sidebar@0.1.1:
-    resolution: {integrity: sha512-VA/OOhy+djEbEVe4CnTjVPgLF/Yr555piMMvM3Mk6d9Na2jf4KGTWyM65iPaNdwlbsZYqBki8+8Vq5v7SdqQig==}
+  /vitepress-plugin-nested-sidebar@0.1.2:
+    resolution: {integrity: sha512-RegBqTVTZ0Vv3ZcoTlAanqfqYed2/sX8KXr9PJHQfVa8iqC0NUt2lqqR/uImecEOMXpGe5q9nRfJGTwnq6eWdQ==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     dev: false
 

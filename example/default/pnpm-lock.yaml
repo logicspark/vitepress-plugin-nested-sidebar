@@ -7,7 +7,7 @@ settings:
 dependencies:
   vitepress-plugin-nested-sidebar:
     specifier: ^0.1.1
-    version: 0.1.1
+    version: 0.1.2
 
 devDependencies:
   gray-matter:
@@ -443,15 +443,7 @@ packages:
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
     dependencies:
-<<<<<<< HEAD
-<<<<<<< HEAD
-      '@babel/parser': 7.22.15
-=======
-      '@babel/parser': 7.22.14
->>>>>>> refs/remotes/origin/develop
-=======
       '@babel/parser': 7.22.16
->>>>>>> main
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       source-map-js: 1.0.2
@@ -865,8 +857,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress-plugin-nested-sidebar@0.1.1:
-    resolution: {integrity: sha512-VA/OOhy+djEbEVe4CnTjVPgLF/Yr555piMMvM3Mk6d9Na2jf4KGTWyM65iPaNdwlbsZYqBki8+8Vq5v7SdqQig==}
+  /vitepress-plugin-nested-sidebar@0.1.2:
+    resolution: {integrity: sha512-RegBqTVTZ0Vv3ZcoTlAanqfqYed2/sX8KXr9PJHQfVa8iqC0NUt2lqqR/uImecEOMXpGe5q9nRfJGTwnq6eWdQ==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     dev: false
 
