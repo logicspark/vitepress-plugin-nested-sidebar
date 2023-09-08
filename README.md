@@ -190,7 +190,7 @@ const {
 } = utility;
 ```
 
-_Note_: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](/example/default-and-custom/.vitepress/theme/Layout.vue) directory.
+_Note: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](/example/default-and-custom/.vitepress/theme/Layout.vue) directory._
 
 ## :books: License
 
