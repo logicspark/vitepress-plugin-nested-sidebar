@@ -9,7 +9,7 @@ Developed by [Logic Spark](https://logicspark.com) team
 
 [![npm](https://img.shields.io/npm/v/vitepress-plugin-nested-sidebar)][package-url]
 [![Typescript](https://img.shields.io/badge/typescript-100%25-blue)][typescript-url]
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/logicspark/awesome-social-button/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](/LICENSE)
 
 </div>
 <br/>
@@ -78,7 +78,7 @@ You will need to import `generateSidebar` function and `Layout.vue` file. Withou
 
 ### Import generateSidebar Function
 
-You will need to import function to `generateSidebar` menu under `themeConfig` setting of [.vitpress/config.mts](https://github.com/logicspark/vitepress-plugin-nested-sidebar/blob/develop/example/default/.vitepress/config.mts) file:
+You will need to import function to `generateSidebar` menu under `themeConfig` setting of [.vitpress/config.mts](/example/default/.vitepress/config.mts) file:
 
 ```js
 import VitepressPluginNestedSidebar from "vitepress-plugin-nested-sidebar";
@@ -190,11 +190,11 @@ const {
 } = utility;
 ```
 
-_Note_: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](https://github.com/logicspark/vitepress-plugin-nested-sidebar/blob/develop/example/default-and-custom/.vitepress/theme/Layout.vue) directory.
+_Note_: You can also apply this instruction to **Option 2** and **Option 3**. For the full sample in accordance with the live demo, please see our [example](/example/default-and-custom/.vitepress/theme/Layout.vue) directory.
 
 ## :books: License
 
-Distributed under the MIT License. See [`LICENSE`](https://github.com/logicspark/vitpress-theme-api/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](/LICENSE) for more information.
 
 Vitepress is licensed under MIT License. Click [here](https://github.com/vuejs/vitepress/blob/main/LICENSE) for more information.
 
